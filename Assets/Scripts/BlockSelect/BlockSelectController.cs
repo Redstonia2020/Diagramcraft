@@ -12,6 +12,8 @@ public class BlockSelectController : MonoBehaviour
     private GameObject _menu;
     [SerializeField]
     private TMP_InputField _searchBar;
+    [SerializeField]
+    private GameObject _blockArea;
 
     void Start()
     {
@@ -27,5 +29,23 @@ public class BlockSelectController : MonoBehaviour
     public void ToggleMenu()
     {
         _menu.SetActive(!_menu.activeSelf);
+    }
+
+    public void SearchBlocks()
+    {
+        foreach (Transform child in _blockArea.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+
+        List<Sprite> valid = new List<Sprite>();
+        foreach (Sprite sprite in TextureLoader.References.Sprites)
+        {
+            if (sprite.name.Contains(_searchBar.text))
+            {
+                valid.Add(sprite);
+            }
+        }
     }
 }
