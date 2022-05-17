@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ClickProcessor : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _tilePrefab;
+
     private Vector3 _clickStartLocation;
     private bool _isDragging;
 
@@ -32,7 +35,7 @@ public class ClickProcessor : MonoBehaviour
         {
             if (!_isDragging)
             {
-                PlaceTile();
+                //PlaceTile();
             }
         }
     }
@@ -42,6 +45,7 @@ public class ClickProcessor : MonoBehaviour
         Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
-        Debug.Log(position);
+        position.z = 0;
+        Instantiate(_tilePrefab, position, Quaternion.identity, transform);
     }
 }
