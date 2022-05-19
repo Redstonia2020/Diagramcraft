@@ -20,17 +20,24 @@ public class ItemTileController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (_collider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
-            {
-                Debug.Log("eea");
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    if (_collider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+        //    {
+        //        Debug.Log("eea");
 
-                GameObject.FindGameObjectWithTag("blockSelectMenu").GetComponent<BlockSelectController>().ToggleMenu();
-                TilePlacement.Tile = _blockImage.sprite;
+        //        GameObject.FindGameObjectWithTag("blockSelectMenu").GetComponent<BlockSelectController>().ToggleMenu();
+        //        TilePlacement.Tile = _blockImage.sprite;
+        //    }
+        //}
+    }
 
-            }
-        }
+    public void Click()
+    {
+        Debug.Log("eea");
+
+        GameObject.FindGameObjectWithTag("blockSelectMenu").GetComponent<BlockSelectController>().ToggleMenu();
+        TilePlacement.Tile = _blockImage.sprite;
     }
 
     public void ChangeTo(Sprite sprite, string name)

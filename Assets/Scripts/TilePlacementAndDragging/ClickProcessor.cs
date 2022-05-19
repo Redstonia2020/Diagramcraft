@@ -17,25 +17,28 @@ public class ClickProcessor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!TilePlacement.IsMenuOpen)
         {
-            _isDragging = false;
-            _clickStartLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            if (Vector2.Distance(_clickStartLocation, Camera.main.ScreenToWorldPoint(Input.mousePosition)) > 0.25f)
+            if (Input.GetMouseButtonDown(0))
             {
-                _isDragging = true;
+                _isDragging = false;
+                _clickStartLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
-        }
 
-        else if (Input.GetMouseButtonUp(0))
-        {
-            if (!_isDragging)
+            if (Input.GetMouseButton(0))
             {
-                //PlaceTile();
+                if (Vector2.Distance(_clickStartLocation, Camera.main.ScreenToWorldPoint(Input.mousePosition)) > 0.25f)
+                {
+                    _isDragging = true;
+                }
+            }
+
+            else if (Input.GetMouseButtonUp(0))
+            {
+                if (!_isDragging)
+                {
+                    PlaceTile();
+                }
             }
         }
     }
@@ -46,6 +49,7 @@ public class ClickProcessor : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
         position.z = 0;
-        Instantiate(_tilePrefab, position, Quaternion.identity, transform);
+        GameObject o = Instantiate(_tilePrefab, position, Quaternion.identity, transform);
+        o.GetComponent<SpriteRenderer>().sprite = TilePlacement.Tile;
     }
 }

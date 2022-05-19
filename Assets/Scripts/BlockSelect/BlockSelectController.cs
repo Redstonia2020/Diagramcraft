@@ -27,12 +27,13 @@ public class BlockSelectController : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void ToggleMenu()
     {
         _menu.SetActive(!_menu.activeSelf);
+        TilePlacement.IsMenuOpen = _menu.activeSelf;
     }
 
     public void SearchBlocks()
@@ -43,20 +44,21 @@ public class BlockSelectController : MonoBehaviour
         }
 
         int placements = 0;
-        float y = 485;
+        float y = 511;
         List<Sprite> valid = new List<Sprite>();
         foreach (Sprite sprite in TextureLoader.References.Sprites)
         {
             if (sprite.name.Contains(_searchBar.text))
             {
                 valid.Add(sprite);
-                if (placements < 6)
+                if (placements < 9)
                 {
                     GameObject o = Instantiate(_itemTilePrefab, _blockArea.transform);
+                    o.GetComponent<RectTransform>().sizeDelta = new Vector2(680.48f, 120f);
                     o.transform.localPosition = new Vector3(0, y);
                     o.GetComponent<ItemTileController>().ChangeTo(sprite, sprite.name);
                     placements++;
-                    y -= 185;
+                    y -= 120;
                 }
             }
         }
