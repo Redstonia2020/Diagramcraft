@@ -71,14 +71,14 @@ public class ClickProcessor : MonoBehaviour
             existingTile.Block = TilePlacement.Tile;
 
             GameObject tileObject = LevelLayout.WorldTiles[LevelLayout.Layout.IndexOf(existingTile)];
-            tileObject.GetComponent<SpriteRenderer>().sprite = TilePlacement.Tile;
+            tileObject.AssignSprite(TilePlacement.Tile);
         }
 
         else
         {
             GameObject o = Instantiate(_tilePrefab, position, Quaternion.identity, transform);
-            o.GetComponent<SpriteRenderer>().sprite = TilePlacement.Tile;
-            
+            o.AssignSprite(TilePlacement.Tile);
+
             LevelLayout.Layout.Add(new Tile(position, TilePlacement.Tile));
             LevelLayout.WorldTiles.Add(o);
         }
