@@ -9,6 +9,7 @@ public class ClickProcessor : MonoBehaviour
 
     private Vector3 _clickStartLocation;
     private bool _isDragging;
+    private Vector3 _lastMousePosition;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class ClickProcessor : MonoBehaviour
             {
                 _isDragging = false;
                 _clickStartLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                _lastMousePosition = Input.mousePosition;
             }
 
             if (Input.GetMouseButton(0))
@@ -30,6 +32,13 @@ public class ClickProcessor : MonoBehaviour
                 if (Vector2.Distance(_clickStartLocation, Camera.main.ScreenToWorldPoint(Input.mousePosition)) > 0.25f)
                 {
                     _isDragging = true;
+
+                    Vector3 screenMove = Camera.main.ScreenToViewportPoint(_lastMousePosition - Input.mousePosition);
+                    screenMove.x *= Screen.width;
+                    screenMove.y *= Screen.height;
+                    
+                    Camera.main.transform.position += screenMove.normalized * Vector3.Distance(Camera.main.ScreenToWorldPoint(_lastMousePosition), Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                    _lastMousePosition = Input.mousePosition;
                 }
             }
 
