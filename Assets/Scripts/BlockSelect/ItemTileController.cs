@@ -34,8 +34,6 @@ public class ItemTileController : MonoBehaviour
 
     public void Click()
     {
-        Debug.Log("eea");
-
         GameObject.FindGameObjectWithTag("blockSelectMenu").GetComponent<BlockSelectController>().ToggleMenu();
         TilePlacement.Tile = _blockImage.sprite;
     }

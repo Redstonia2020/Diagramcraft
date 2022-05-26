@@ -13,7 +13,7 @@ public class ClickProcessor : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -36,7 +36,7 @@ public class ClickProcessor : MonoBehaviour
                     Vector3 screenMove = Camera.main.ScreenToViewportPoint(_lastMousePosition - Input.mousePosition);
                     screenMove.x *= Screen.width;
                     screenMove.y *= Screen.height;
-                    
+
                     Camera.main.transform.position += screenMove.normalized * Vector3.Distance(Camera.main.ScreenToWorldPoint(_lastMousePosition), Camera.main.ScreenToWorldPoint(Input.mousePosition));
                     _lastMousePosition = Input.mousePosition;
                 }
@@ -58,7 +58,29 @@ public class ClickProcessor : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
         position.z = 0;
-        GameObject o = Instantiate(_tilePrefab, position, Quaternion.identity, transform);
-        o.GetComponent<SpriteRenderer>().sprite = TilePlacement.Tile;
+
+        Tile existingTile = null;
+        foreach (Tile tile in LevelLayout.Layout)
+        {
+            if (tile.Position == (Vector2)position)
+                existingTile = tile;
+        }
+
+        if (existingTile != null)
+        {
+            existingTile.Block = TilePlacement.Tile;
+
+            GameObject tileObject = LevelLayout.WorldTiles[LevelLayout.Layout.IndexOf(existingTile)];
+            tileObject.GetComponent<SpriteRenderer>().sprite = TilePlacement.Tile;
+        }
+
+        else
+        {
+            GameObject o = Instantiate(_tilePrefab, position, Quaternion.identity, transform);
+            o.GetComponent<SpriteRenderer>().sprite = TilePlacement.Tile;
+            
+            LevelLayout.Layout.Add(new Tile(position, TilePlacement.Tile));
+            LevelLayout.WorldTiles.Add(o);
+        }
     }
 }
