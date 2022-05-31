@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public static class LevelLayout
     public static List<GameObject> WorldTiles = new List<GameObject>();
 }
 
+[Serializable]
 public class Tile
 {
     public Vector2 Position;

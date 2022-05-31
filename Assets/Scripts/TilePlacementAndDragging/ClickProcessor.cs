@@ -82,5 +82,7 @@ public class ClickProcessor : MonoBehaviour
             LevelLayout.Layout.Add(new Tile(position, TilePlacement.Tile));
             LevelLayout.WorldTiles.Add(o);
         }
+
+        SaveDataManagement.Save();
     }
 }
