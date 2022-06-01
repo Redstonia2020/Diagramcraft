@@ -320,6 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404068992}
   - component: {fileID: 404068993}
+  - component: {fileID: 404068994}
   m_Layer: 0
   m_Name: Editor
   m_TagString: Untagged
@@ -354,6 +355,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tilePrefab: {fileID: 9010482852502355555, guid: bb87287200c734e4185a7b4fb881800d, type: 3}
+--- !u!114 &404068994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404068991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4b3a634b0006a4cbe2787436884e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &541371070
 GameObject:
   m_ObjectHideFlags: 0
