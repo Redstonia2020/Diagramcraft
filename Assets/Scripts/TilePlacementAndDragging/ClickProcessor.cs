@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ClickProcessor : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _tilePrefab;
-
     private Vector3 _clickStartLocation;
     private bool _isDragging;
     private Vector3 _lastMousePosition;
@@ -76,11 +73,8 @@ public class ClickProcessor : MonoBehaviour
 
         else
         {
-            GameObject o = Instantiate(_tilePrefab, position, Quaternion.identity, transform);
-            o.AssignSprite(TilePlacement.Tile);
-
-            LevelLayout.Layout.Add(new Tile(position, TilePlacement.Tile));
-            LevelLayout.WorldTiles.Add(o);
+            Tile tile = new Tile(position, TilePlacement.Tile);
+            tile.Create();
         }
 
         SaveDataManagement.Save();

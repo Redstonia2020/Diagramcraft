@@ -21,6 +21,17 @@ public static class SaveDataManagement
     public static void Load()
     {
         CreateSaveDirectory();
+        if (SaveFile == "")
+        {
+            SaveFile = "autosave.json";
+        }
+
+        if (File.Exists(SaveDirectory))
+        {
+            string jsonData = File.ReadAllText(SaveDirectory);
+            SaveData data = JsonUtility.FromJson<SaveData>(jsonData);
+            LevelLayout.BuildSceneFromLayout(data.Layout);
+        }
     }
 
     public static void Save()

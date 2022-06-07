@@ -354,7 +354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2a48fc5a8952145845c106f0b5d103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tilePrefab: {fileID: 9010482852502355555, guid: bb87287200c734e4185a7b4fb881800d, type: 3}
 --- !u!114 &404068994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4b3a634b0006a4cbe2787436884e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tilePrefab: {fileID: 9010482852502355555, guid: bb87287200c734e4185a7b4fb881800d, type: 3}
 --- !u!1 &541371070
 GameObject:
   m_ObjectHideFlags: 0
