@@ -50,8 +50,22 @@ public static class SaveDataManagement
     {
         return new SaveData
         {
-            Layout = LevelLayout.Layout
+            Layout = LevelLayout.Layout,
         };
+    }
+
+    public static List<FileInformation> GetAllAndSortByTime()
+    {
+        string[] fileNames = Directory.GetFiles(SaveLocation);
+
+        List<FileInformation> files = new List<FileInformation>();
+        foreach (string fileName in fileNames)
+        {
+            files.Add(new FileInformation { Name = fileName, LastEdit = File.GetLastWriteTime(fileName) });
+        }
+
+        files.Sort((x, y) => DateTime.Compare(x.LastEdit, y.LastEdit));
+        return files;
     }
 
     private static void CreateSaveDirectory()
@@ -67,4 +81,10 @@ public static class SaveDataManagement
 public class SaveData
 {
     public List<Tile> Layout;
+}
+
+public class FileInformation
+{
+    public string Name;
+    public DateTime LastEdit;
 }

@@ -48,6 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BlockSelect\OpenSelectionMenu.cs" />
+     <Compile Include="Assets\Scripts\Scenes\SceneSwitcher.cs" />
      <Compile Include="Assets\Scripts\TextureLoader\TextureLoader.cs" />
      <Compile Include="Assets\Scripts\UI\GraphicsRaycaster.cs" />
      <Compile Include="Assets\Scripts\Level\LevelLayout.cs" />
@@ -56,9 +57,10 @@
      <Compile Include="Assets\Scripts\BlockSelect\BlockSelectController.cs" />
      <Compile Include="Assets\Scripts\Level\GameLevelController.cs" />
      <Compile Include="Assets\Scripts\BlockSelect\ItemTileController.cs" />
-     <Compile Include="Assets\Scripts\SaveDataManagement\SaveDataManagement.cs" />
+     <Compile Include="Assets\Scripts\FileManagement\SaveDataManagement.cs" />
      <Compile Include="Assets\Scripts\TilePlacementAndDragging\ClickProcessor.cs" />
      <Compile Include="Assets\Scripts\TextureLoader\TextureLoaderReferences.cs" />
+     <Compile Include="Assets\Scripts\FileManagement\FileNavigationDisplay.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
