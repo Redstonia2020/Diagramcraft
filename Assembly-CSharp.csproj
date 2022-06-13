@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\TilePlacementAndDragging\ClickProcessor.cs" />
      <Compile Include="Assets\Scripts\TextureLoader\TextureLoaderReferences.cs" />
      <Compile Include="Assets\Scripts\FileManagement\FileNavigationDisplay.cs" />
+     <Compile Include="Assets\Scripts\FileManagement\FilePanelController.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
