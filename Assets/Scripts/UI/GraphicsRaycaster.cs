@@ -32,10 +32,13 @@ public class GraphicsRaycaster : MonoBehaviour
 
             foreach (RaycastResult result in results)
             {
-                //Debug.Log(result.gameObject);
                 var i = result.gameObject.GetComponent<ItemTileController>();
                 if (i)
                     i.Click();
+
+                var f = result.gameObject.GetComponent<FilePanelController>();
+                if (f)
+                    f.Click();
             }
         }
     }
