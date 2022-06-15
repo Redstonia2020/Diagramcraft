@@ -51,32 +51,35 @@ public class ClickProcessor : MonoBehaviour
 
     public void PlaceTile()
     {
-        Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        position.x = Mathf.Round(position.x);
-        position.y = Mathf.Round(position.y);
-        position.z = 0;
-
-        Tile existingTile = null;
-        foreach (Tile tile in LevelLayout.Layout)
+        if (TilePlacement.Tile)
         {
-            if (tile.Position == (Vector2)position)
-                existingTile = tile;
+            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            position.x = Mathf.Round(position.x);
+            position.y = Mathf.Round(position.y);
+            position.z = 0;
+
+            Tile existingTile = null;
+            foreach (Tile tile in LevelLayout.Layout)
+            {
+                if (tile.Position == (Vector2)position)
+                    existingTile = tile;
+            }
+
+            if (existingTile != null)
+            {
+                existingTile.Block = TilePlacement.Tile;
+
+                GameObject tileObject = LevelLayout.WorldTiles[LevelLayout.Layout.IndexOf(existingTile)];
+                tileObject.AssignSprite(TilePlacement.Tile);
+            }
+
+            else
+            {
+                Tile tile = new Tile(position, TilePlacement.Tile);
+                tile.Create();
+            }
+
+            SaveDataManagement.Save();
         }
-
-        if (existingTile != null)
-        {
-            existingTile.Block = TilePlacement.Tile;
-
-            GameObject tileObject = LevelLayout.WorldTiles[LevelLayout.Layout.IndexOf(existingTile)];
-            tileObject.AssignSprite(TilePlacement.Tile);
-        }
-
-        else
-        {
-            Tile tile = new Tile(position, TilePlacement.Tile);
-            tile.Create();
-        }
-
-        SaveDataManagement.Save();
     }
 }
