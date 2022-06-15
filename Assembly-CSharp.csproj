@@ -47,7 +47,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\FileManagement\FileNavigationDisplay.cs" />
+     <Compile Include="Assets\Scripts\FileManagement\Navigation\FileNavigationDisplay.cs" />
      <Compile Include="Assets\Scripts\BlockSelect\OpenSelectionMenu.cs" />
      <Compile Include="Assets\Scripts\TextureLoader\TextureLoader.cs" />
      <Compile Include="Assets\Scripts\UI\GraphicsRaycaster.cs" />
@@ -60,8 +60,9 @@
      <Compile Include="Assets\Scripts\FileManagement\SaveDataManagement.cs" />
      <Compile Include="Assets\Scripts\Scenes\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\TilePlacementAndDragging\ClickProcessor.cs" />
-     <Compile Include="Assets\Scripts\FileManagement\FilePanelController.cs" />
+     <Compile Include="Assets\Scripts\FileManagement\Navigation\FilePanelController.cs" />
      <Compile Include="Assets\Scripts\TextureLoader\TextureLoaderReferences.cs" />
+     <Compile Include="Assets\Scripts\FileManagement\Navigation\CreateNewFileButton.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
