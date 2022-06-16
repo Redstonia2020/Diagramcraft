@@ -78,7 +78,7 @@ public static class SaveDataManagement
             files.Add(new FileInformation { Name = fileName, LastEdit = File.GetLastWriteTime(fileName) });
         }
 
-        files.Sort((x, y) => DateTime.Compare(x.LastEdit, y.LastEdit));
+        files.Sort((x, y) => DateTime.Compare(y.LastEdit, x.LastEdit));
         return files;
     }
 

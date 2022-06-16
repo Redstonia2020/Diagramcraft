@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\TextureLoader\TextureLoader.cs" />
      <Compile Include="Assets\Scripts\UI\GraphicsRaycaster.cs" />
      <Compile Include="Assets\Scripts\Level\LevelLayout.cs" />
+     <Compile Include="Assets\Scripts\FileManagement\Navigation\CreateNewFileButton.cs" />
      <Compile Include="Assets\Scripts\TilePlacementAndDragging\TilePlacement.cs" />
      <Compile Include="Assets\Scripts\EditorQOL\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\BlockSelect\BlockSelectController.cs" />
@@ -62,7 +63,6 @@
      <Compile Include="Assets\Scripts\TilePlacementAndDragging\ClickProcessor.cs" />
      <Compile Include="Assets\Scripts\FileManagement\Navigation\FilePanelController.cs" />
      <Compile Include="Assets\Scripts\TextureLoader\TextureLoaderReferences.cs" />
-     <Compile Include="Assets\Scripts\FileManagement\Navigation\CreateNewFileButton.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
