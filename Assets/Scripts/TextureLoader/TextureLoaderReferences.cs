@@ -9,6 +9,7 @@ public class TextureLoaderReferences : MonoBehaviour
     void Start()
     {
         TextureLoader.References = this;
+        TextureLoader.GroupTextures();
     }
 
     void Update()
