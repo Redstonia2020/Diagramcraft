@@ -7,7 +7,7 @@ public static class TextureLoader
 {
     public static TextureLoaderReferences References;
 
-    public static List<TextureGroup> TextureGroups;
+    public static List<TextureGroup> TextureGroups = new List<TextureGroup>();
 
     public static void GroupTextures()
     {
@@ -16,8 +16,14 @@ public static class TextureLoader
 
         for (int i = 0; i < ids.Length; i++)
         {
-            new TextureGroup(englishTranslations[i], ids[i]);
+            var group = new TextureGroup(englishTranslations[i], ids[i]);
+            if (group.Textures.Count > 0)
+            {
+                TextureGroups.Add(group);
+            }
         }
+
+        Debug.Log(TextureGroups.Count);
     }
 
     public static Sprite GetTexture(int id)

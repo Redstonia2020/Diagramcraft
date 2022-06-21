@@ -45,18 +45,18 @@ public class BlockSelectController : MonoBehaviour
 
         int placements = 0;
         float y = 511;
-        List<Sprite> valid = new List<Sprite>();
-        foreach (Sprite sprite in TextureLoader.References.Sprites)
+        List<TextureGroup> valid = new List<TextureGroup>();
+        foreach (TextureGroup block in TextureLoader.TextureGroups)
         {
-            if (sprite.name.Contains(_searchBar.text))
+            if (block.Name.ToLower().Contains(_searchBar.text.ToLower()))
             {
-                valid.Add(sprite);
+                valid.Add(block);
                 if (placements < 9)
                 {
                     GameObject o = Instantiate(_itemTilePrefab, _blockArea.transform);
                     o.GetComponent<RectTransform>().sizeDelta = new Vector2(680.48f, 120f);
                     o.transform.localPosition = new Vector3(0, y);
-                    o.GetComponent<ItemTileController>().ChangeTo(sprite, sprite.name);
+                    o.GetComponent<ItemTileController>().ChangeTo(block.Textures[0], block.Name);
                     placements++;
                     y -= 120;
                 }
