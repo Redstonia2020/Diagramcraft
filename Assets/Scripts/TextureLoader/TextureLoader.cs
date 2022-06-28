@@ -8,6 +8,7 @@ public static class TextureLoader
     public static TextureLoaderReferences References;
 
     public static List<TextureGroup> TextureGroups = new List<TextureGroup>();
+    private static Dictionary<string, TextureGroup> IdToGroup = new Dictionary<string, TextureGroup>();
 
     public static void GroupTextures()
     {
@@ -20,10 +21,9 @@ public static class TextureLoader
             if (group.Textures.Count > 0)
             {
                 TextureGroups.Add(group);
+                IdToGroup.Add(group.ID, group);
             }
         }
-
-        Debug.Log(TextureGroups.Count);
     }
 
     public static Sprite GetTexture(int id)
@@ -54,5 +54,6 @@ public class TextureGroup
 
 public class Texture
 {
-    
+    public static Sprite BlockState;
+    public static string BlockID;
 }
