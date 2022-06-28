@@ -26,6 +26,11 @@ public static class TextureLoader
         }
     }
 
+    public static TextureGroup GetGroup(string id)
+    {
+        return IdToGroup[id];
+    }
+
     public static Sprite GetTexture(int id)
     {
         return References.Sprites[id];
@@ -50,10 +55,4 @@ public class TextureGroup
             }
         }
     }
-}
-
-public class Texture
-{
-    public static Sprite BlockState;
-    public static string BlockID;
 }

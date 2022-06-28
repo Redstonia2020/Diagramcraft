@@ -23,12 +23,17 @@ public static class LevelLayout
 public class Tile
 {
     public Vector2 Position;
-    public Sprite Block;
+    BlockTexture Texture;
 
-    public Tile(Vector2 position, Sprite block)
+    public Tile(Vector2 position, BlockTexture texture)
     {
         Position = position;
-        Block = block;
+        Texture = texture;
+    }
+
+    public Sprite GetSprite()
+    {
+        return Texture.GetSprite();
     }
 
     public void Create()
@@ -37,5 +42,23 @@ public class Tile
 
         LevelLayout.Layout.Add(this);
         LevelLayout.WorldTiles.Add(tileObject);
+    }
+}
+
+[Serializable]
+public class BlockTexture
+{
+    public string GroupId;
+    public int BlockState;
+
+    public BlockTexture(string id, int state)
+    {
+        GroupId = id;
+        BlockState = state;
+    }
+
+    public Sprite GetSprite()
+    {
+        return TextureLoader.GetGroup(GroupId).Textures[BlockState];
     }
 }
