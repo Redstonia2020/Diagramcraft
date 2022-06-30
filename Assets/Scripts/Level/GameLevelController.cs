@@ -21,7 +21,7 @@ public class GameLevelController : MonoBehaviour
     public GameObject CreateObjectFromTile(Tile tile)
     {
         GameObject tileObject = Instantiate(_tilePrefab, tile.Position, Quaternion.identity, transform);
-        tileObject.AssignSprite(tile.Block);
+        tileObject.AssignSprite(tile.GetSprite());
         return tileObject;
     }
 }

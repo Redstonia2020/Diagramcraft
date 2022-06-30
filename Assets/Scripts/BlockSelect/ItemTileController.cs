@@ -11,6 +11,8 @@ public class ItemTileController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _blockName;
 
+    public BlockTexture CorrespondingBlock;
+
     private Collider2D _collider;
 
     void Start()
@@ -35,12 +37,12 @@ public class ItemTileController : MonoBehaviour
     public void Click()
     {
         GameObject.FindGameObjectWithTag("blockSelectMenu").GetComponent<BlockSelectController>().ToggleMenu();
-        TilePlacement.CurrentTile = _blockImage.sprite;
+        TilePlacement.CurrentTile = CorrespondingBlock;
     }
 
-    public void ChangeTo(Sprite sprite, string name)
+    public void ChangeTo(BlockTexture block)
     {
-        _blockImage.sprite = sprite;
-        _blockName.text = name;
+        _blockImage.sprite = block.GetSprite();
+        _blockName.text = block.GetGroup().Name;
     }
 }

@@ -51,7 +51,7 @@ public class ClickProcessor : MonoBehaviour
 
     public void PlaceTile()
     {
-        if (TilePlacement.CurrentTile)
+        if (TilePlacement.CurrentTile != null)
         {
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             position.x = Mathf.Round(position.x);
@@ -67,10 +67,10 @@ public class ClickProcessor : MonoBehaviour
 
             if (existingTile != null)
             {
-                existingTile.Block = TilePlacement.CurrentTile;
+                existingTile.Texture = TilePlacement.CurrentTile;
 
                 GameObject tileObject = LevelLayout.WorldTiles[LevelLayout.Layout.IndexOf(existingTile)];
-                tileObject.AssignSprite(TilePlacement.CurrentTile);
+                tileObject.AssignSprite(TilePlacement.CurrentTile.GetSprite());
             }
 
             else

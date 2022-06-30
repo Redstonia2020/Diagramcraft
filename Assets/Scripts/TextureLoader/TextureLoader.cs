@@ -36,23 +36,3 @@ public static class TextureLoader
         return References.Sprites[id];
     }
 }
-
-public class TextureGroup
-{
-    public string Name;
-    public string ID;
-    public List<Sprite> Textures = new List<Sprite>();
-
-    public TextureGroup(string name, string id)
-    {
-        Name = name;
-        ID = id;
-        foreach (Sprite s in TextureLoader.References.Sprites)
-        {
-            if (s.name.StartsWith(id))
-            {
-                Textures.Add(s);
-            }
-        }
-    }
-}

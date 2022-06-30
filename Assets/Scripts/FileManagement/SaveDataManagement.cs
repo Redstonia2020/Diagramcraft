@@ -33,9 +33,9 @@ public static class SaveDataManagement
             SaveData data = JsonUtility.FromJson<SaveData>(jsonData);
 
             List<Tile> tileList = new List<Tile>();
-            foreach (TileData d in data.Layout)
+            foreach (Tile t in data.Layout)
             {
-                tileList.Add(d.ToTile());
+                tileList.Add(t);
             }
 
             LevelLayout.BuildSceneFromLayout(tileList);
@@ -56,15 +56,9 @@ public static class SaveDataManagement
 
     private static SaveData CreateSaveData()
     {
-        List<TileData> tileDataList = new List<TileData>();
-        foreach (Tile t in LevelLayout.Layout)
-        {
-            tileDataList.Add(t.ToData());
-        }
-
         return new SaveData
         {
-            Layout = tileDataList
+            Layout = LevelLayout.Layout
         };
     }
 
@@ -94,20 +88,7 @@ public static class SaveDataManagement
 [Serializable]
 public class SaveData
 {
-    public List<TileData> Layout;
-}
-
-[Serializable]
-public class TileData
-{
-    public Vector2 Position;
-    public string SpriteName;
-
-    public static explicit operator TileData(Tile t) => new TileData
-    {
-        Position = t.Position,
-        SpriteName = t.Block.name
-    };
+    public List<Tile> Layout;
 }
 
 public class FileInformation

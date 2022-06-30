@@ -56,7 +56,7 @@ public class BlockSelectController : MonoBehaviour
                     GameObject o = Instantiate(_itemTilePrefab, _blockArea.transform);
                     o.GetComponent<RectTransform>().sizeDelta = new Vector2(680.48f, 120f);
                     o.transform.localPosition = new Vector3(0, y);
-                    o.GetComponent<ItemTileController>().ChangeTo(block.Textures[0], block.Name);
+                    o.GetComponent<ItemTileController>().ChangeTo(block.TextureControllers[0]);
                     placements++;
                     y -= 120;
                 }

@@ -23,7 +23,7 @@ public static class LevelLayout
 public class Tile
 {
     public Vector2 Position;
-    BlockTexture Texture;
+    public BlockTexture Texture;
 
     public Tile(Vector2 position, BlockTexture texture)
     {
@@ -46,6 +46,32 @@ public class Tile
 }
 
 [Serializable]
+public class TextureGroup
+{
+    public string Name;
+    public string ID;
+    public List<BlockTexture> TextureControllers = new List<BlockTexture>();
+    public List<Sprite> Textures = new List<Sprite>();
+
+    public TextureGroup(string name, string id)
+    {
+        Name = name;
+        ID = id;
+
+        int i = 0;
+        foreach (Sprite s in TextureLoader.References.Sprites)
+        {
+            if (s.name.StartsWith(id))
+            {
+                Textures.Add(s);
+                TextureControllers.Add(new BlockTexture(ID, i));
+                i++;
+            }
+        }
+    }
+}
+
+[Serializable]
 public class BlockTexture
 {
     public string GroupId;
@@ -59,6 +85,11 @@ public class BlockTexture
 
     public Sprite GetSprite()
     {
-        return TextureLoader.GetGroup(GroupId).Textures[BlockState];
+        return GetGroup().Textures[BlockState];
+    }
+
+    public TextureGroup GetGroup()
+    {
+        return TextureLoader.GetGroup(GroupId);
     }
 }
